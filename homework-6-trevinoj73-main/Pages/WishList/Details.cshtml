@@ -1,0 +1,46 @@
+@page
+@model Final.Pages.WishList.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Wish</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Wish.Title)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Wish.Title)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Wish.Price)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Wish.Price)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Wish.Version)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Wish.Version)
+        </dd>
+        @foreach (var L in Model.Wish.Links)
+        {
+            <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => L.URLLink)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => L.URLLink)
+        </dd>
+        }
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Wish.WishID">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>
