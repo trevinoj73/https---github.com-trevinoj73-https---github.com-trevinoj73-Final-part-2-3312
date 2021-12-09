@@ -24,7 +24,7 @@ namespace Final.Pages.WishList
 
         public AddLinkModel(WishlistContext context, ILogger<AddLinkModel> logger)
         {
-            // Bring in Database context and logger using dependency injection
+            
             _context = context;
             _logger = logger;
         }
