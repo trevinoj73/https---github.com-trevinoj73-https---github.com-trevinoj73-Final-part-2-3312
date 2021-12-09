@@ -33,19 +33,19 @@ namespace Final.Pages.WishList
         {
             WishDropDown = new SelectList(_context.Wishes.ToList(), "WishID", "Name");
         }
+    
+
+        public IActionResult OnPost()
+        {
+            if (!ModelState.IsValid)
+            {
+                return Page();
+            }
+
+            _context.Links.Add(Link);
+            _context.SaveChanges();
+
+            return RedirectToPage("./Index");
+        }
     }
 }
-      //  public IActionResult OnPost()
-       // {
-      //      if (!ModelState.IsValid)
-        //    {
-          //      return Page();
-            //}
-//
-  //          _context.Links.Add(Link);
-    //        _context.SaveChanges();
-//
-  //          return RedirectToPage("./Index");
-    //    }
-    //}
-//}
