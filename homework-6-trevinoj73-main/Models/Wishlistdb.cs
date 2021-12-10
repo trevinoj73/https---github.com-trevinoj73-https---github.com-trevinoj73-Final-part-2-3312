@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-using LinkASP.Models;
 
-namespace WishlistASP.Models
+
+namespace  homework_6_trevinoj73.Models 
 {
     public class WishlistContext : DbContext
     {
@@ -10,9 +10,9 @@ namespace WishlistASP.Models
         {
         }
 
-        public DbSet<Wish> Wishes { get; set; }
+        public DbSet<Wish> Wish { get; set; }
 
-        public DbSet<Link> Links {get;set;}
+        public DbSet<Link> Link {get;set;}
         
     }
 }

@@ -1,9 +1,7 @@
 @page
-@model  Final.Pages.WishList.AddLinkModel
+@model  homework_6_trevinoj73.Pages.AddLinkModel
 
-@{
-    ViewData["Title"] = "Add Link";
-}
+
 
 <h1>Create</h1>
 
@@ -18,6 +16,11 @@
                     <option value="">--Select Card--</option> 
                 </select>
                 <span asp-validation-for="Link.WishId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Link.URLLink" class="control-label"></label>
+                <input asp-for="Link.URLLink" class="form-control" />
+                <span asp-validation-for="Link.URLLink" class="text-danger"></span>
             </div>
             
             <div class="form-group">

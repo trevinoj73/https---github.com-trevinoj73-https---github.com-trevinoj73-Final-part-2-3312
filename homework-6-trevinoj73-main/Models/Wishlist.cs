@@ -5,11 +5,11 @@ using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using Microsoft.Extensions.DependencyInjection;
-using LinkASP.Models;
 
-namespace WishlistASP.Models
+
+namespace  homework_6_trevinoj73.Models
 {
-    public class Wish
+   public class Wish
 {
     public int WishID { get; set; }
 
@@ -17,7 +17,6 @@ namespace WishlistASP.Models
     [Required]
     public string Title { get; set; }
 
-    [Range(1, 100)]
     [DataType(DataType.Currency)]
     [Column(TypeName = "decimal(5, 2)")]
     public decimal Price { get; set; }

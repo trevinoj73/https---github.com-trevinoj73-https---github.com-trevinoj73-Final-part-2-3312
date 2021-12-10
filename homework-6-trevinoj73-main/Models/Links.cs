@@ -5,10 +5,9 @@ using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using Microsoft.Extensions.DependencyInjection;
-using WishlistASP.Models;
 
 
-namespace LinkASP.Models
+namespace  homework_6_trevinoj73.Models 
 {
     public class Link
 {
@@ -17,7 +16,9 @@ namespace LinkASP.Models
     [Required]
      [Url]
     public string URLLink {get;set;}
-
+    
+     [Display(Name = "Name")]
+        [Required]
     public int WishId {get;set;}
     public Wish Wish {get;set;}
 }

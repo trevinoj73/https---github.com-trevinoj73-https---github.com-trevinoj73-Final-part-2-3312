@@ -3,9 +3,9 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Linq;
 using System.Collections.Generic;
-using LinkASP.Models;
 
-namespace WishlistASP.Models
+
+namespace homework_6_trevinoj73.Models 
 {
     public static class SeedData
     {
@@ -15,12 +15,12 @@ namespace WishlistASP.Models
                 serviceProvider.GetRequiredService<DbContextOptions<WishlistContext>>()))
             {
                
-                if (context.Wishes.Any())
+                if (context.Wish.Any())
                 {
                     return;   
                 }
 
-                context.Wishes.AddRange(
+                context.Wish.AddRange(
                     new Wish
                     {
                         Title = "Grift",

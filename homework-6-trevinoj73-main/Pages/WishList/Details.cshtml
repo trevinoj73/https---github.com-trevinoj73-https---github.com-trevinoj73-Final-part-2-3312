@@ -1,5 +1,5 @@
 @page
-@model Final.Pages.WishList.DetailsModel
+@model homework_6_trevinoj73.Pages.WishList.DetailsModel
 
 @{
     ViewData["Title"] = "Details";
@@ -29,14 +29,20 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Wish.Version)
         </dd>
-        @foreach (var L in Model.Wish.Links)
+        @foreach (var m in Model.Wish.Links)
         {
             <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => L.URLLink)
+            @Html.DisplayNameFor(model => m.URLLink)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => L.URLLink)
+            @Html.DisplayFor(model => m.URLLink)
         </dd>
+          <dt class="col-sm-9">
+                <form method="post">
+                    <input type="hidden" asp-for="LinkIdToDeleat" value="@m.ID" />
+                    <input type="submit" asp-page-handler="DeleteLink" asp-route-id="@Model.Wish.WishID" value="Delete Link" class="btn btn-danger btn-sm" />
+                </form>
+            </dt>
         }
     </dl>
 </div>

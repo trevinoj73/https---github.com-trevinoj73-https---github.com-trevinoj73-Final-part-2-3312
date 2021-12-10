@@ -7,7 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
-using WishlistASP.Models;
+using homework_6_trevinoj73.Models;
 
 namespace homework_6_trevinoj73
 {

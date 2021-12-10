@@ -6,15 +6,15 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using WishlistASP.Models;
+using homework_6_trevinoj73.Models;
 
-namespace Final.Pages.WishList
+namespace homework_6_trevinoj73.Pages.WishList
 {
     public class EditModel : PageModel
     {
-        private readonly WishlistASP.Models.WishlistContext _context;
+        private readonly homework_6_trevinoj73.Models.WishlistContext _context;
 
-        public EditModel(WishlistASP.Models.WishlistContext context)
+        public EditModel(homework_6_trevinoj73.Models.WishlistContext context)
         {
             _context = context;
         }
@@ -29,7 +29,7 @@ namespace Final.Pages.WishList
                 return NotFound();
             }
 
-            Wish = await _context.Wishes.FirstOrDefaultAsync(m => m.WishID == id);
+            Wish = await _context.Wish.FirstOrDefaultAsync(m => m.WishID == id);
 
             if (Wish == null)
             {
@@ -70,7 +70,7 @@ namespace Final.Pages.WishList
 
         private bool WishExists(int id)
         {
-            return _context.Wishes.Any(e => e.WishID == id);
+            return _context.Wish.Any(e => e.WishID == id);
         }
     }
 }

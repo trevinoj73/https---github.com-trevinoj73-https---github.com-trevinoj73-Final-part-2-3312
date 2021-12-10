@@ -5,13 +5,13 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
-using WishlistASP.Models;
+using homework_6_trevinoj73.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using LinkASP.Models;
 
 
-namespace Final.Pages.WishList
+
+namespace homework_6_trevinoj73.Pages
 {
     public class AddLinkModel : PageModel
     {
@@ -31,7 +31,7 @@ namespace Final.Pages.WishList
 
         public void OnGet()
         {
-            WishDropDown = new SelectList(_context.Wishes.ToList(), "WishID", "Name");
+            WishDropDown = new SelectList(_context.Wish.ToList(), "WishID", "Title");
         }
     
 
@@ -42,7 +42,7 @@ namespace Final.Pages.WishList
                 return Page();
             }
 
-            _context.Links.Add(Link);
+            _context.Link.Add(Link);
             _context.SaveChanges();
 
             return RedirectToPage("./Index");

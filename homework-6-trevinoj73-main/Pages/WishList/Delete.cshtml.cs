@@ -5,15 +5,15 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using WishlistASP.Models;
+using homework_6_trevinoj73.Models;
 
-namespace Final.Pages.WishList
+namespace homework_6_trevinoj73.Pages.WishList
 {
     public class DeleteModel : PageModel
     {
-        private readonly WishlistASP.Models.WishlistContext _context;
+        private readonly homework_6_trevinoj73.Models.WishlistContext _context;
 
-        public DeleteModel(WishlistASP.Models.WishlistContext context)
+        public DeleteModel(homework_6_trevinoj73.Models.WishlistContext context)
         {
             _context = context;
         }
@@ -28,7 +28,7 @@ namespace Final.Pages.WishList
                 return NotFound();
             }
 
-            Wish = await _context.Wishes.FirstOrDefaultAsync(m => m.WishID == id);
+            Wish = await _context.Wish.FirstOrDefaultAsync(m => m.WishID == id);
 
             if (Wish == null)
             {
@@ -44,11 +44,11 @@ namespace Final.Pages.WishList
                 return NotFound();
             }
 
-            Wish = await _context.Wishes.FindAsync(id);
+            Wish = await _context.Wish.FindAsync(id);
 
             if (Wish != null)
             {
-                _context.Wishes.Remove(Wish);
+                _context.Wish.Remove(Wish);
                 await _context.SaveChangesAsync();
             }
 

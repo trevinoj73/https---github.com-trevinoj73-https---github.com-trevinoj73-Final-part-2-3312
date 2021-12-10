@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using WishlistASP.Models;
+using homework_6_trevinoj73.Models;
 
 namespace homework6trevinoj73.Migrations
 {
@@ -15,7 +15,7 @@ namespace homework6trevinoj73.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.21");
 
-            modelBuilder.Entity("LinkASP.Models.Link", b =>
+            modelBuilder.Entity("homework_6_trevinoj73.Models.Link", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -32,10 +32,10 @@ namespace homework6trevinoj73.Migrations
 
                     b.HasIndex("WishId");
 
-                    b.ToTable("Links");
+                    b.ToTable("Link");
                 });
 
-            modelBuilder.Entity("WishlistASP.Models.Wish", b =>
+            modelBuilder.Entity("homework_6_trevinoj73.Models.Wish", b =>
                 {
                     b.Property<int>("WishID")
                         .ValueGeneratedOnAdd()
@@ -56,12 +56,12 @@ namespace homework6trevinoj73.Migrations
 
                     b.HasKey("WishID");
 
-                    b.ToTable("Wishes");
+                    b.ToTable("Wish");
                 });
 
-            modelBuilder.Entity("LinkASP.Models.Link", b =>
+            modelBuilder.Entity("homework_6_trevinoj73.Models.Link", b =>
                 {
-                    b.HasOne("WishlistASP.Models.Wish", "Wish")
+                    b.HasOne("homework_6_trevinoj73.Models.Wish", "Wish")
                         .WithMany("Links")
                         .HasForeignKey("WishId")
                         .OnDelete(DeleteBehavior.Cascade)

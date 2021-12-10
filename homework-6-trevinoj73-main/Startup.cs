@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using WishlistASP.Models;
+using homework_6_trevinoj73.Models;
 using Microsoft.EntityFrameworkCore;
 namespace homework_6_trevinoj73
 {

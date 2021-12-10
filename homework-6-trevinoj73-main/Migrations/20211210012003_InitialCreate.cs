@@ -7,7 +7,7 @@ namespace homework6trevinoj73.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Wishes",
+                name: "Wish",
                 columns: table => new
                 {
                     WishID = table.Column<int>(nullable: false)
@@ -18,11 +18,11 @@ namespace homework6trevinoj73.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Wishes", x => x.WishID);
+                    table.PrimaryKey("PK_Wish", x => x.WishID);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Links",
+                name: "Link",
                 columns: table => new
                 {
                     ID = table.Column<int>(nullable: false)
@@ -32,28 +32,28 @@ namespace homework6trevinoj73.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Links", x => x.ID);
+                    table.PrimaryKey("PK_Link", x => x.ID);
                     table.ForeignKey(
-                        name: "FK_Links_Wishes_WishId",
+                        name: "FK_Link_Wish_WishId",
                         column: x => x.WishId,
-                        principalTable: "Wishes",
+                        principalTable: "Wish",
                         principalColumn: "WishID",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Links_WishId",
-                table: "Links",
+                name: "IX_Link_WishId",
+                table: "Link",
                 column: "WishId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Links");
+                name: "Link");
 
             migrationBuilder.DropTable(
-                name: "Wishes");
+                name: "Wish");
         }
     }
 }

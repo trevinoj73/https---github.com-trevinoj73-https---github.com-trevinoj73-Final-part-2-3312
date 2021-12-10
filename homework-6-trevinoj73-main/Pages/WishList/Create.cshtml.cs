@@ -5,15 +5,15 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using WishlistASP.Models;
+using homework_6_trevinoj73.Models;
 
-namespace Final.Pages.WishList
+namespace homework_6_trevinoj73.Pages.WishList
 {
     public class CreateModel : PageModel
     {
-        private readonly WishlistASP.Models.WishlistContext _context;
+        private readonly homework_6_trevinoj73.Models.WishlistContext _context;
 
-        public CreateModel(WishlistASP.Models.WishlistContext context)
+        public CreateModel(homework_6_trevinoj73.Models.WishlistContext context)
         {
             _context = context;
         }
@@ -35,7 +35,7 @@ namespace Final.Pages.WishList
                 return Page();
             }
 
-            _context.Wishes.Add(Wish);
+            _context.Wish.Add(Wish);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

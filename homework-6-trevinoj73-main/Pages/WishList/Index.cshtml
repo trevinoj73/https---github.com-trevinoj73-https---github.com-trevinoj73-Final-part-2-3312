@@ -1,5 +1,5 @@
 @page
-@model Final.Pages.WishList.IndexModel
+@model homework_6_trevinoj73.Pages.WishList.IndexModel
 
 @{
     ViewData["Title"] = "Index";
@@ -14,13 +14,31 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Wish[0].Title)
+                  @{
+                    
+                    var firstSort = "Title_asc";
+                    if (Model.CurrentSort == "Title_asc")
+                    {
+                        firstSort = "Title_desc";
+                    }
+                }
+                <a asp-page="./Index" asp-route-CurrentSort="@firstSort">@Html.DisplayNameFor(model => model.Wish[0].Title)</a>
+               
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Wish[0].Price)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Wish[0].Version)
+                 @{
+                    
+                    var therSort = "Version_asc";
+                    if (Model.CurrentSort == "Version_asc")
+                    {
+                        firstSort = "Version_desc";
+                    }
+                }
+                <a asp-page="./Index" asp-route-CurrentSort="@therSort">@Html.DisplayNameFor(model => model.Wish[0].Version)</a>
+                
             </th>
             <th></th>
         </tr>
@@ -28,6 +46,11 @@
     <tbody>
 @foreach (var item in Model.Wish) {
         <tr>
+            <td>
+                <form method="get">
+    <button type="submit" asp-page="./AddLink">Click me to go to add links</button>
+</form>
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Title)
             </td>
@@ -46,3 +69,19 @@
 }
     </tbody>
 </table>
+<hr />
+@{
+    
+    var prevDisabled = "";
+    if (Model.PageNum <= 1)
+    {
+        prevDisabled = "disabled";
+    }
+}
+
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+    <li class="page-item @prevDisabled"><a class="page-link" asp-page="./Index" asp-route-PageNum="@(Model.PageNum - 1)">Previous</a></li>
+    <li class="page-item"><a class="page-link" asp-page="./Index" asp-route-PageNum="@(Model.PageNum + 1)">Next</a></li>
+  </ul>
+</nav>
